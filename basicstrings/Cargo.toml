@@ -1,6 +1,0 @@
-[package]
-name = "basicstrings"
-version = "0.1.0"
-authors = ["jamesmeyer1993 <jmeyer1993@outlook.com>"]
-
-[dependencies]
