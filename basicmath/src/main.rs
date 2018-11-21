@@ -45,8 +45,11 @@ fn choose(n: u64, r: u64, repeats: bool) -> u64 {
         let x1 = fac(n);
         let x2 = fac(n-r);
         let x3 = fac(r);
-        println!("x = {} / ( {} * {} )", x1, x2, x3);
-        return result;
+        result = x1 / ( x2 * x3 );
+    }
+
+    if result == 0 {
+        panic!("Choose must not return 0!");
     }
     return result;
 }
