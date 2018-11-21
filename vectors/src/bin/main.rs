@@ -65,8 +65,15 @@ fn main() {
     let mut pf = lib::PrimeFinder::new(100);
     pf.run(None);
 
-    for i in pf.data {
-        println!("{}", i);
+    pf.run(Some(1000));
+
+    {
+        let mut count = 0;
+        for i in pf.data.iter() {
+            println!("{}: {}", count, i);
+            count+=1;
+        }
+        println!("data.len(): {}\tdata.capacity(): {}", pf.data.len(), pf.data.capacity() as u32);
     }
     // {
     //     let mut v: Vec<u8> = Vec::new();
