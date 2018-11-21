@@ -30,9 +30,16 @@ mod lib {
 
         fn gen_primes(&mut self, to: u32){
 
-            let mut i: u64 = 9;
             let mut isprime: bool;
+            // the following len assignment and match statement causes the prime generator to
+            // start running from where it previously left off
             let mut len = self.data.len();
+            let mut i: u64;
+            match self.data.get(len-1) {
+                Some(x) => i = *x,
+                None => panic!("Index out of bounds!"),
+            }
+
             while i <= to as u64 {
                 isprime = true;
 
@@ -65,7 +72,7 @@ fn main() {
     let mut pf = lib::PrimeFinder::new(100);
     pf.run(None);
 
-    pf.run(Some(1000));
+    pf.run(Some(100000));
 
     {
         let mut count = 0;
